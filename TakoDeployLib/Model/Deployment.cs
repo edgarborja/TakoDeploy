@@ -67,14 +67,17 @@ namespace TakoDeployCore.Model
             try
             {
                 foreach (var source in Sources)
-                {                   
-                    await source.PopulateTargets(); //Clear and populate
-
-                    foreach (var target in source.Targets)
+                {
+                    if (source.Checked) //EBORJA
                     {
-                        target.DeploymentStatusMessage = "";
-                        //await target.TryConnect(CancellationToken.None);
-                        Targets.Add(target);
+                        await source.PopulateTargets(); //Clear and populate
+
+                        foreach (var target in source.Targets)
+                        {
+                            target.DeploymentStatusMessage = "";
+                            //await target.TryConnect(CancellationToken.None);
+                            Targets.Add(target);
+                        }
                     }
                 }
 

@@ -14,6 +14,10 @@ namespace TakoDeployCore.Model
     {
         public ObservableCollection<SqlScriptContent> Scripts { get; set; }
         public string Name { get; set; }
+
+        private bool _checked;
+        public bool Checked { get { return _checked; } set { SetField(ref _checked, value); } }
+
         private string _content = null;
         private SqlScriptFile treeSelectedItem;
 

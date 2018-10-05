@@ -126,6 +126,7 @@
                             <HierarchicalDataTemplate.ItemTemplate>
                                 <DataTemplate>
                                     <WrapPanel>
+                                        <CheckBox IsChecked="{Binding Checked}" />
                                         <TextBlock Text="{Binding Name}" Margin="3 2"  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
                                         <!--<materialDesign:PackIcon Kind="ChemicalWeapon"  ></materialDesign:PackIcon>-->
                                     </WrapPanel>

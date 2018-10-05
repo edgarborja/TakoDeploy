@@ -269,6 +269,7 @@ namespace TakoDeployWPF
                 if ((bool)result)
                 {
                     DocumentManager.Current.Deployment.ScriptFiles.Add(script);
+                    
                 }
 
                 //check the result...

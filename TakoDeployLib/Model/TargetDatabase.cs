@@ -112,11 +112,15 @@ namespace TakoDeployCore.Model
                 foreach (var scriptFile in scriptFiles)
                 {
                     currentFile = scriptFile;
-                    foreach (var script in scriptFile.Scripts)
+                    //EBORJA 
+                    if (scriptFile.Checked)
                     {
-                        currentContent = script;
-                        await Context.ExecuteNonQueryAsync(script.Content, CommandTimeout, ct);
-                    }                    
+                        foreach (var script in scriptFile.Scripts)
+                        {
+                            currentContent = script;
+                            await Context.ExecuteNonQueryAsync(script.Content, CommandTimeout, ct);
+                        }
+                    }
                 }
                 this.Context.CommitTransaction();
             }
